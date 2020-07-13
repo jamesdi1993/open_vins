@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import argparse
 import os.path
 import sys
@@ -14,13 +15,13 @@ def parse_path(args):
     return path
 
 if __name__=="__main__":
-    print("Script is started.")
     parser = argparse.ArgumentParser(
         description='Publish groundtruth trajectory from a txt/csv file')
-    parser.add_argument('-d', '--dataset', help='data set', choices=['uzh_fpv', 'euroc_mav'], required=True)
-    parser.add_argument('-f', '--file_name', help='file name', required=True)
+    parser.add_argument('-d', '--dataset', help='data set', choices=['uzh_fpv', 'euroc_mav'], required=False)
+    parser.add_argument('-f', '--file_name', help='file name', required=False)
     parser.add_argument('-r', '--root', help='root of datasets', default='/home/jamesdi1993/workspace/catkin_ws_ov/src/open_vins/ov_data')
 
-    args = parser.parse_args(sys.argv[3:])
+    args, _ = parser.parse_known_args(sys.argv[1:])
+    print(args)
     path = parse_path(args)
     publish_trajectory(path)
