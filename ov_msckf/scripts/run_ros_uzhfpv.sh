@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Source our workspace directory to load ENV variables
-source /home/patrick/workspace/catkin_ws_ov/devel/setup.bash
+source /home/jamesdi1993/workspace/catkin_ws_ov/devel/setup.bash
 
 
 #=============================================================
