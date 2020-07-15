@@ -2,6 +2,8 @@
   <arg name="dataset" default="uzh_fpv" />
   <arg name="file_name" default="indoor_forward_9_snapdragon_with_gt.txt" />
 
+  <!-- Run Rviz -->
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find ov_msckf)/launch/display.rviz" />
 
   <!-- Launch Parser -->  
   <node pkg="ov_msckf" name="publish_trajectory" type="publish_trajectory.py" args="-d $(arg dataset) -f $(arg file_name)" output="screen" />

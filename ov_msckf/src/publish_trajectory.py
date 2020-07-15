@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+from vio_manager import GTVIOManager
+from ros_visualizer import ROSVisualizer
+
 import argparse
 import os.path
 import sys
@@ -6,6 +9,12 @@ import sys
 def publish_trajectory(path):
     print("Reading from path: %s" % path)
     assert os.path.exists(path), "The file does not exists: %s" % path
+
+    vio_manager = GTVIOManager(path)
+    visualizer = ROSVisualizer(vio_manager)
+    for i in range(10000):
+        visualizer.publish_state()
+
 
 def parse_path(args):
     root = args.root
